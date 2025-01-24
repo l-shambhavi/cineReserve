@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Updated background color */
+        }
+
+        header {
+            background-color: #333; /* Updated header background color */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        section {
+            max-width: 800px; /* Increased max-width */
+            margin: 0 auto;
+            padding: 40px; /* Increased padding */
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0;
+            color: #ff1d58; /* Header text color */
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #c5b8ac; /* Subsection headings color */
+        }
+
+        form {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333; /* Label text color */
+        }
+
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0; /* Increased margin */
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .submit-button{
+            background-color: #ff1d58; /* Submit button background color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #ff0072; /* Hover color for the submit button */
+        }
+        a {
+            background-color: #ff1d58; /* Submit button background color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        a:hover {
+            background-color: #ff0072; /* Hover color for the submit button */
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Page -->
+    <header>
+        <h1>Chithha</h1>
+    </header>
+
+    <section>
+        <h2>Booking Details</h2>
+        <form action="booking_handler_chithha.php" method="post" >
+            <input type="hidden" name="movie" value="chithha">
+            <!--<label for="bookingDate">Date:</label>
+            <input type="date" id="bookingDate" name="bookingDate" min="2023-11-01" required>-->
+            <br>
+            
+            <br>
+        </form>
+        <form method="post" action="booking_handler_chithha.php">
+            <!--<label for="numTickets">Number of Tickets:</label>
+            <input type="number" id="numTickets" name="numTickets" min="1" required>-->
+            <input type="hidden" name="movie" value="chithha">
+            <label for="bookingDate">Select Date</label>
+            <select id="bookingDate" name="bookingDate" required>
+                <option value="2023-11-01">01 NOV</option>
+                <option value="2023-11-02">02 NOV</option>
+                <option value="2023-11-03">03 NOV</option>
+                <option value="2023-11-04">04 NOV</option>
+            </select>
+<!--<input type="hidden" name="numTickets" value="<?php echo $_POST['numTickets']; ?>">-->
+            <div>
+            <label for="numTickets">Number of tickets:</label>
+            <input type="number" id="numTickets" name="numTickets" required>
+            </div>
+                <select id="theater" name="theater" required>
+                <option value="KG Cinemas">KG Cinemas</option>
+                <option value="Cosmo Cinemas">Cosmo Cinemas</option>
+                <option value="Miraj Cinemas">Miraj Cinemas</option>
+
+                <!-- Add more theater options here -->
+            </select>
+            
+            <br>
+            
+            <label for="showtime">Select Showtime:</label>
+            <select id="showtime" name="showtime" required>
+                <option value="10:30 A.M">10.30 A.M</option>
+                <option value="4:30 P.M">4.30 P.M</option>
+                <option value="7:30 P.M">7.30 P.M</option>
+                <!-- Add more showtime options here -->
+            </select>
+            
+            <br>
+            <br>
+            <input type="submit" value="Confirm Showtime">
+            <a href="seat_processing_chithha.php" id="link-button">Confirm Showtime</a>
+            </form>
+    </section>
+</body>
+</html>

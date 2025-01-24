@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="seat_selection.css">
+    <style>
+        /* Your CSS code here */
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0;
+            color: #ff1d58;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #c5b8ac;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .seat {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #ccc;
+            background-color: #f2f2f2;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + .seat {
+            background-color: #2196F3;
+            color: #fff;
+        }
+
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff1d58;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff0072;
+        }
+    </style>
+</head>
+<body>
+    <!-- Seat Selection Page -->
+    <header>
+        <h1>Seat Selection</h1>
+    </header>
+
+    <section>
+        <h2>Select Your Seats</h2>
+        <p>Date: [Insert Date]</p>
+        <p>Showtime: [Insert Time]</p>
+        <p>Theatre: [Insert Theatre]</p>
+
+        <form method="post">
+            <div class="seating-plan">
+                <?php
+                // Loop through rows 'a' to 'g' and seats '01' to '10' to generate seats
+                for ($row = 'a'; $row <= 'g'; $row++) {
+                    for ($seat = 1; $seat <= 10; $seat++) {
+                        $seatNumber = $row . sprintf('%02d', $seat);
+                        $seatClass = in_array($seatNumber, $selectedSeats) ? 'seat selected' : 'seat';
+                        echo '<label><input type="checkbox" name="selected_seats[]" value="' . $seatNumber . '"><div class="' . $seatClass . '">' . $seatNumber . '</div></label>';
+                    }
+                }
+                ?>
+            </div>
+            <br>
+            <input type="submit" value="Proceed to Payment Gateway">
+        </form>
+    </section>
+</body>
+</html>
