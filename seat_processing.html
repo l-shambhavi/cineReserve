@@ -122,7 +122,6 @@
         <form method="post">
             <div class="seating-plan">
                 <?php
-                // Loop through rows 'a' to 'g' and seats '01' to '10' to generate seats
                 for ($row = 'a'; $row <= 'g'; $row++) {
                     for ($seat = 1; $seat <= 10; $seat++) {
                         $seatNumber = $row . sprintf('%02d', $seat);
